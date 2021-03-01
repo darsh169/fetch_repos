@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://fav-language.herokuapp.com/ -->
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+      <div class="container">
+            <h2 class="subs-title text-center">Enter github username below</h2>
+            <form class="subscribe_form" action="/controller1/show_repos" accept-charset="UTF-8" method="get">
+              <input type="text" name="username" id="username" placeholder="Github username" class="email" required="required">
+              <input type="submit" name="commit" value="Investigate!" class="subscribe" id="submit_button" data-disable-with="Investigate!">
+            </form>
+        
+      </div>
+    </div>
+
+
+  <div class="container">
+
+    <% if !@msg.nil? then %>
+    <h4>
+      <%= @msg %>
+    </h4>
+    <%end %>
+  </div>
+
+
+  <div class="container">
+    <% if !@out.nil? then%>
+    <% @out.each do |item| %>
+    <div>
+	    <a href="<%= item["html_url"]%>"><%= item["html_url"] %></a>
+    </div>
+    <%end%>
+    <%end%>
+  </div>
+
+
+
+  
+
+</body>
+</html>
